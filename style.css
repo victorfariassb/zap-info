@@ -1,3 +1,71 @@
 html{
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    width: auto;
+}
+
+body{
+    margin: 0 auto;
+    height: 100vh;
+}
+h1 {
+    margin-top: 0;
+    text-align: center;
+    padding: 1%;
+    border-bottom: 1px solid black;
+    background-color: #25D366;
+}
+main{
+    width: 50%;
+    margin: 0 auto;
+}
+
+input{
+    margin: auto;
+    display: block;
+}
+
+#output{
+    text-align: center;
+    list-style-position: inside
+}
+
+.instrucoes{
+    display: grid;
+    grid-template-columns: 100px 500px;
+    grid-auto-rows: 50px;
+    margin: 2vh auto;
+}
+
+.numero{
+    border: 2px solid black;
+    border-bottom: 0;
+    text-align: center;
+    font-size: 40px;
+}
+.numero:first{
+    border-bottom: 2px solid black;
+}
+
+.guia{
+    font-size: 20px;
+    background-color: #25D366;
+    border: 2px solid black;
+    border-left: 0;
+    border-bottom: 0;
+    padding: 2%;
+    text-align: left;
+}
+.guia:first{
+    border-bottom: 2px solid black;
+}
+
+.guia:last-child{
+    border-bottom: 2px solid black;
+}
+
+.numero-fim{
+    border: 2px solid black;
+    text-align: center;
+    font-size: 40px;
 }

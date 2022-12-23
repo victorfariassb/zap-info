@@ -7,22 +7,26 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>FALA MUITO!! 😄</h1>
     <main>
-    <h2> Veja quem falou mais no seu grupo de zap</h2>
-    <h4>Para descobrir, é muito simples, basta seguir as instruções:</h4>
-    <div class="instrucoes">
-        <span class="numero">1:</span><span class="guia">Vá até o grupo que você quer descobrir</span>
-        <span class="numero">2:</span><span class="guia">Na parte superior esquerda, selecione os 3 pontos</span>
-        <span class="numero">3:</span><span class="guia">Escolha a opção "Mais"</span>
-        <span class="numero">4:</span><span class="guia">Selecione "Exportar conversa", depois "Sem mídia"</span>
-        <span class="numero-fim">5:</span><span class="guia">Agora escolha o arquivo e veja o resultado!</span>
-    </div>
+        <header>
+            <h2> Veja quem falou mais no seu grupo de zap</h2>
+            <h4>Para descobrir, é muito simples, basta seguir as instruções:</h4>
+        </header>
+        <div class="instrucoes">
+            <span class="numero">1:</span><span class="guia">Vá até o grupo que você quer descobrir</span>
+            <span class="numero">2:</span><span class="guia">Na parte superior esquerda, selecione os 3 pontos</span>
+            <span class="numero">3:</span><span class="guia">Escolha a opção "Mais"</span>
+            <span class="numero">4:</span><span class="guia">Selecione "Exportar conversa", depois "Sem mídia"</span>
+            <span class="numero-fim">5:</span><span class="guia">Agora escolha o arquivo e veja o resultado!</span>
+        </div>
 
-    <input type='file' accept='text/plain' onchange='openFile(event)'><br>
-    <ol id='output'></ol>
-</main>
+        <input type='file' accept='text/plain' onchange='openFile(event)'><br>
+        <ol id='output'></ol>
+    </main>
 </body>
 <script type="text/javascript" src="app.js"></script>
+
 </html>

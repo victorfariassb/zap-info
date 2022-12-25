@@ -1,6 +1,6 @@
 let node = document.getElementById('output');
+let node2 = document.getElementById("output2")
 let count_unique_names = new Set()
-let ol = document.querySelector("ol")
 let ultima_msg = document.querySelector(".ultima-msg")
 let titulo1 = document.querySelector(".titulo-1")
 let titulo2 = document.querySelector(".titulo-2")
@@ -22,6 +22,7 @@ var openFile = function (event) {
     titulo1.style.display = "block"
     titulo2.style.display = "block"
     node.style.display = "block"
+    node2.style.display = "block"
 
     count_occurrences(trechos)
     count_string(trechos, count_unique_names)
@@ -53,15 +54,42 @@ function count_occurrences(trechos) {
   // depois organizamos da maior para a menor
   count_nomes = Object.fromEntries(Object.entries(count_nomes).sort(([, a], [, b]) => b - a))
   // e criamos a lista no HMTL
-  var child = ol.lastElementChild; 
+  var child = node.lastElementChild; 
   while (child) {
-    ol.removeChild(child);
-    child = ol.lastElementChild;}
+    node.removeChild(child);
+    child = node.lastElementChild;}
   for (let participante in count_nomes) {
     let p = document.createElement('li')
     p.innerHTML = participante + ": " + count_nomes[participante]
     node.appendChild(p)
   }
+
+  let sliced = Object.fromEntries(Object.entries(count_nomes).slice(0, 5))
+
+  var layout = {
+    title: "Os 5 que mais falaram",
+    font:{
+      family:' Arial, Helvetica, sans-serif'
+    },
+    showlegend: false,
+    paper_bgcolor:"#dcf8c6",
+    plot_bgcolor:"#dcf8c6"
+
+  }
+  
+  var config = {responsive: true}
+
+  var data = [
+    {
+      x: Object.keys(sliced),
+      y: Object.values(sliced),
+      type: 'bar',
+      marker: {
+        color: '#25D366'
+      }
+    }
+  ];
+    Plotly.newPlot('myDiv', data, layout, config);
 }
 
 function count_string(trechos, participantes){
@@ -83,6 +111,17 @@ function count_string(trechos, participantes){
       }
     }
     count_final[name] = count_string
+    // depois organizamos da maior para a menor
+    count_final = Object.fromEntries(Object.entries(count_final).sort(([, a], [, b]) => b - a))
+    // e criamos a lista no HMTL
+    var child = node2.lastElementChild; 
+    while (child) {
+      node2.removeChild(child);
+      child = node2.lastElementChild;}
+    for (let participante in count_final) {
+      let p = document.createElement('li')
+      p.innerHTML = participante + ": " + count_final[participante]
+      node2.appendChild(p)
   }
 
   var layout = {
@@ -99,8 +138,8 @@ function count_string(trechos, participantes){
       type: 'pie'
     }
   ];
-    Plotly.newPlot('myDiv', data, layout, config);
+    Plotly.newPlot('myDiv2', data, layout, config);
 }
-
+}
 
 

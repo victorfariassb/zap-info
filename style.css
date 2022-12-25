@@ -21,7 +21,6 @@ header{
     text-align: center;
 }
 main{
-    width: 642px;
     margin: 0 auto;
 }
 
@@ -36,11 +35,16 @@ input{
     padding: 0%;
 }
 
+.ultima-msg{
+    text-align: center;
+}
+
 .instrucoes{
     display: grid;
     grid-template-columns: 100px 542px;
     grid-auto-rows: 50px;
     margin: 2vh auto;
+    justify-content: center;
 }
 
 .numero{
@@ -74,4 +78,24 @@ input{
     border: 2px solid black;
     text-align: center;
     font-size: 40px;
+}
+
+@media (max-width: 500px) {
+    main{
+        width: 100%;
+    }
+
+    header{
+        margin: 0 4vw;
+    }
+
+    .instrucoes{
+        margin: 4vh 2vw;
+        grid-template-columns: 0.7fr 3fr;
+        grid-auto-rows: 47px;
+    }
+
+    .guia{
+        font-size: 15px;
+    }
 }

@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fala muito</title>
     <link rel="stylesheet" href="style.css">
+    <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
 </head>
 
 <body>
@@ -22,11 +23,10 @@
             <span class="numero">4:</span><span class="guia">Selecione "Exportar conversa", depois "Sem mídia"</span>
             <span class="numero-fim">5:</span><span class="guia">Agora escolha o arquivo e veja o resultado!</span>
         </div>
-
         <input type='file' accept='text/plain' onchange='openFile(event)'><br>
         <ol id='output'></ol>
+        <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
     </main>
 </body>
 <script type="text/javascript" src="app.js"></script>
-
 </html>

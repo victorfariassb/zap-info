@@ -3,6 +3,7 @@ let count_unique_names = new Set()
 let ol = document.querySelector("ol")
 let ultima_msg = document.querySelector(".ultima-msg")
 let titulo1 = document.querySelector(".titulo-1")
+let titulo2 = document.querySelector(".titulo-2")
 
 var openFile = function (event) {
   count_unique_names.clear()
@@ -19,6 +20,7 @@ var openFile = function (event) {
     let primeira_msg = trechos[0].split(/ (?:[01]\d|2[0123]):(?:[012345]\d) - /)[0]
     ultima_msg.innerHTML = "A mensagem mais antiga é de: " + primeira_msg
     titulo1.style.display = "block"
+    titulo2.style.display = "block"
     node.style.display = "block"
 
     count_occurrences(trechos)
@@ -84,10 +86,8 @@ function count_string(trechos, participantes){
   }
 
   var layout = {
-    title: "Nº de caracteres digitados por integrante",
-    font: {
-      family: 'Arial, Helvetica, sans-serif'},
     showlegend: false,
+    paper_bgcolor:"#dcf8c6",
   }
   
   var config = {responsive: true}

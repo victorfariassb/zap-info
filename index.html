@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
 </head>
+
 <body>
     <h1>FALA MUITO!! 😄</h1>
     <main>
         <header>
             <h2> Veja quem falou mais no seu grupo de zap</h2>
-            <h4>Para descobrir, é muito simples, basta seguir as instruções:</h4>
+            <h5>Para descobrir, é muito simples, basta seguir as instruções:</h5>
         </header>
         <div class="instrucoes">
             <span class="numero">1:</span><span class="guia">Vá até o grupo que você quer descobrir</span>
@@ -25,10 +26,12 @@
         <input type='file' accept='text/plain' onchange='openFile(event)' accept=".txt"><br>
         <p class="ultima-msg"></p>
         <h3 class="titulo-1">Nº de mensagens enviadas</h3>
-        <ol id='output'>
-        </ol>
-        <div id='myDiv'></div>
+        <ol id='output'></ol>
+        <h3 class="titulo-2">Nº de caracteres enviados</h3>
+        <div id='myDiv'>
+        </div>
     </main>
 </body>
 <script type="text/javascript" src="app.js"></script>
+
 </html>

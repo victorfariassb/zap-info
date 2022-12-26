@@ -1,5 +1,5 @@
 html{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Roboto', sans-serif;
     box-sizing: border-box;
     width: auto;
     height: 100%;
@@ -15,12 +15,22 @@ h1 {
     padding: 2vh;
     border-bottom: 2px solid black;
     background-color: #25D366;
+    box-shadow: 0px 0px 4px black;
 
 }
 
 header{
     text-align: center;
 }
+
+header > h2 {
+    font-weight: 500;
+}
+
+header > h5 {
+    font-weight: 500;
+}
+
 main{
     margin: 0 auto;
 }
@@ -45,9 +55,37 @@ input{
     text-align: center;
     list-style-position: inside;
     background-color: #dcf8c6;
-    padding: 2vh 0 3vh;
+    padding: 3vh 0 3vh;
     border-top: 2px solid black;
     margin: 0 auto;
+}
+
+#output > li:first-child::after{
+    content: " 🥇";
+}
+
+#output > li:nth-child(2)::after{
+    content: " 🥈";
+}
+
+#output > li:nth-child(3):after{
+    content: " 🥉";
+}
+
+#output2 > li:first-child::after{
+    content: " 🥇";
+}
+
+#output2 > li:nth-child(2)::after{
+    content: " 🥈";
+}
+
+#output2 > li:nth-child(3):after{
+    content: " 🥉";
+}
+
+li{
+    margin-bottom: 0.5vh;
 }
 
 .titulo-2{
@@ -120,7 +158,7 @@ input{
     .instrucoes{
         margin: 4vh 2vw;
         grid-template-columns: 0.7fr 3fr;
-        grid-auto-rows: 47px;
+        grid-auto-rows: 50px;
     }
 
     .guia{

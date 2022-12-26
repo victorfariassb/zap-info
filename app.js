@@ -18,7 +18,7 @@ var openFile = function (event) {
     // separarmos o texto por cada '\n'
     let trechos = text.split('\n')
     let primeira_msg = trechos[0].split(/ (?:[01]\d|2[0123]):(?:[012345]\d) - /)[0]
-    ultima_msg.innerHTML = "A mensagem mais antiga é de: " + primeira_msg
+    ultima_msg.innerHTML = "A mensagem mais antiga é de: <b>" + primeira_msg + "</b>"
     titulo1.style.display = "block"
     titulo2.style.display = "block"
     node.style.display = "block"
@@ -59,25 +59,26 @@ function count_occurrences(trechos) {
     node.removeChild(child);
     child = node.lastElementChild;}
   for (let participante in count_nomes) {
-    let p = document.createElement('li')
-    p.innerHTML = participante + ": " + count_nomes[participante]
-    node.appendChild(p)
+    let li = document.createElement('li')
+    li.innerHTML = participante + ": " + count_nomes[participante]
+    node.appendChild(li)
   }
 
   let sliced = Object.fromEntries(Object.entries(count_nomes).slice(0, 5))
 
   var layout = {
-    title: "Os 5 que mais falaram",
+    title: "<b>Os 5 que mais falaram</b>",
     font:{
-      family:' Arial, Helvetica, sans-serif'
+      family: 'Roboto, sans-serif'
     },
     showlegend: false,
     paper_bgcolor:"#dcf8c6",
-    plot_bgcolor:"#dcf8c6"
-
+    plot_bgcolor:"#dcf8c6",
   }
   
-  var config = {responsive: true}
+  var config = {
+    responsive: true,
+    displayModeBar: false}
 
   var data = [
     {
@@ -125,6 +126,10 @@ function count_string(trechos, participantes){
   }
 
   var layout = {
+    title: "<b>Participantes por % de caracteres enviados</b>",
+    font:{
+      family: 'Roboto, sans-serif'
+    },
     showlegend: false,
     paper_bgcolor:"#dcf8c6",
   }
@@ -143,3 +148,29 @@ function count_string(trechos, participantes){
 }
 
 
+function count_emoji(trechos) {
+  let count_emoji = []
+    for (let trecho of trechos) {
+      trecho = trecho.split(/(?:[01]\d|2[0123]):(?:[012345]\d) - /)
+      if (Object.keys(trecho).length == 2) {
+        let conteudo = trecho[1]
+        conteudo = conteudo.split(':')
+        if (conteudo.length == 2) {
+          conteudo = conteudo[1].split(' ')
+          for (let palavra of Object.values(conteudo)) {
+            let emoji = /(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff])[\ufe0e\ufe0f]?(?:[\u0300-\u036f\ufe20-\ufe23\u20d0-\u20f0]|\ud83c[\udffb-\udfff])?(?:\u200d(?:[^\ud800-\udfff]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff])[\ufe0e\ufe0f]?(?:[\u0300-\u036f\ufe20-\ufe23\u20d0-\u20f0]|\ud83c[\udffb-\udfff])?)*/
+            var result = palavra.match(emoji)
+            if (!!result) {
+              count_emoji.push(result[0])
+            }
+          }
+        }
+      }
+    }
+    count_emoji = count_emoji.reduce(function (acc, curr) {
+      return acc[curr] ? ++acc[curr] : acc[curr] = 1, acc
+    }, {});
+    // depois organizamos da maior para a menor
+    count_emoji = Object.fromEntries(Object.entries(count_emoji).sort(([, a], [, b]) => b - a))
+
+  }

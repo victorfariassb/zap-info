@@ -17,8 +17,6 @@ var openFile = function (event) {
     let text = reader.result;
     // separarmos o texto por cada '\n'
     let trechos = text.split('\n')
-    let primeira_msg = trechos[0].split(/ (?:[01]\d|2[0123]):(?:[012345]\d) - /)[0]
-    ultima_msg.innerHTML = "A mensagem mais antiga é de: <b>" + primeira_msg + "</b>"
     titulo1.style.display = "block"
     titulo2.style.display = "block"
     node.style.display = "block"
@@ -38,12 +36,15 @@ function count_occurrences(trechos) {
     if (Object.keys(trecho).length == 2) {
       // escolhemos como nome a segunda parte da msg, mas ainda falta tirar todo o conteúdo da msg
       let nome = trecho[1]
+      let data = trecho[0].substr(-5, 4)
+      if (data == new Date().getFullYear() - 1) {
       // por isso, separamos novamente, mas agora pelo :
       nome = nome.split(':')
       if (nome.length == 2) {
         nome = nome[0]
         count_nomes.push(nome)
         count_unique_names.add(nome)
+      }
       }
     }
   }
@@ -105,8 +106,11 @@ function count_string(trechos, participantes){
         if (nome.length == 2) {
           let conteudo = nome[1].length
           nome = nome[0]
+          let data = trecho[0].substr(-5, 4)
+          if (data == new Date().getFullYear() - 1) {
           if (nome == name) {
             count_string += conteudo
+          }
           }
         }
       }

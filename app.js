@@ -60,7 +60,7 @@ function count_occurrences(trechos) {
     child = node.lastElementChild;}
   for (let participante in count_nomes) {
     let li = document.createElement('li')
-    li.innerHTML = participante + ": " + count_nomes[participante]
+    li.innerHTML = participante + ": " + count_nomes[participante].toLocaleString('pt-BR')
     node.appendChild(li)
   }
 
@@ -121,7 +121,7 @@ function count_string(trechos, participantes){
       child = node2.lastElementChild;}
     for (let participante in count_final) {
       let p = document.createElement('li')
-      p.innerHTML = participante + ": " + count_final[participante]
+      p.innerHTML = participante + ": " + count_final[participante].toLocaleString('pt-BR')
       node2.appendChild(p)
   }
 
@@ -133,14 +133,19 @@ function count_string(trechos, participantes){
     showlegend: false,
     paper_bgcolor:"#dcf8c6",
   }
+
   
-  var config = {responsive: true}
+  var config = {responsive: true,
+    staticPlot: true}
 
   var data = [
     {
       labels: Object.keys(count_final),
+      parents: Array.apply("", Array( Object.keys(count_final).length)).map(function () {}),
       values: Object.values(count_final),
-      type: 'pie'
+      type: 'treemap',
+      textinfo: "label+value+percent",
+
     }
   ];
     Plotly.newPlot('myDiv2', data, layout, config);

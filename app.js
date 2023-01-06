@@ -42,8 +42,10 @@ function count_occurrences(trechos) {
       nome = nome.split(':')
       if (nome.length == 2) {
         nome = nome[0]
+        if (nome.includes("mudou o nome de") == false) {
         count_nomes.push(nome)
         count_unique_names.add(nome)
+        }
       }
       }
     }

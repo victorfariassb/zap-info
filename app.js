@@ -30,6 +30,7 @@ var openFile = function (event) {
 
 function count_occurrences(trechos) {
   let count_nomes = []
+  let msgs = []
   for (let trecho of trechos) {
     // separamos depois da hora e de ' - '  
     if (trecho[0] == '[') {
@@ -40,9 +41,11 @@ function count_occurrences(trechos) {
         let data = trecho[0].substr(-4, 4)
         if (data == new Date().getFullYear() - 1) {
           nome = nome.split(':')
-          if (nome.length == 2) {
+          if (nome.length > 1) {
+            let msg = nome[1]
             nome = nome[0]
             if (nome.includes("mudou o nome de") == false) {
+              msgs.push(msg)
               count_nomes.push(nome)
               count_unique_names.add(nome)
             }
@@ -59,7 +62,7 @@ function count_occurrences(trechos) {
         if (data == new Date().getFullYear() - 1) {
           // por isso, separamos novamente, mas agora pelo :
           nome = nome.split(':')
-          if (nome.length == 2) {
+          if (nome.length > 1) {
             nome = nome[0]
             if (nome.includes("mudou o nome de") == false) {
               count_nomes.push(nome)
@@ -70,6 +73,7 @@ function count_occurrences(trechos) {
       }
     }
   }
+
   // aqui nós contamos as ocorrências
   count_nomes = count_nomes.reduce(function (acc, curr) {
     return acc[curr] ? ++acc[curr] : acc[curr] = 1, acc
@@ -131,7 +135,7 @@ function count_string(trechos, participantes) {
           let data = trecho[0].substr(-4, 4)
           if (data == new Date().getFullYear() - 1) {
             nome = nome.split(':')
-            if (nome.length == 2) {
+            if (nome.length > 1) {
               let conteudo = nome[1].length
               nome = nome[0]
               let data = trecho[0].substr(-4, 4)
@@ -149,7 +153,7 @@ function count_string(trechos, participantes) {
         if (Object.keys(trecho).length == 2) {
           let nome = trecho[1]
           nome = nome.split(':')
-          if (nome.length == 2) {
+          if (nome.length > 1) {
             let conteudo = nome[1].length
             nome = nome[0]
             let data = trecho[0].substr(-5, 4)

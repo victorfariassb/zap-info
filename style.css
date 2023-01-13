@@ -50,6 +50,11 @@ input{
     background-color: #25D366;
 }
 
+.obs{
+    text-align: center;
+    margin: 5vh;
+}
+
 #output, #output2{
     display: none;
     text-align: center;

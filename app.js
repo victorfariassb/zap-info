@@ -30,7 +30,6 @@ var openFile = function (event) {
 
 function count_occurrences(trechos) {
   let count_nomes = []
-  let msgs = []
   for (let trecho of trechos) {
     // separamos depois da hora e de ' - '  
     if (trecho[0] == '[') {
@@ -42,10 +41,8 @@ function count_occurrences(trechos) {
         if (data == new Date().getFullYear() - 1) {
           nome = nome.split(':')
           if (nome.length > 1) {
-            let msg = nome[1]
             nome = nome[0]
             if (nome.includes("mudou o nome de") == false) {
-              msgs.push(msg)
               count_nomes.push(nome)
               count_unique_names.add(nome)
             }

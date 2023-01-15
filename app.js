@@ -30,7 +30,7 @@ var openFile = function (event) {
 
 function count_occurrences(trechos) {
   let count_nomes = []
-  for (let trecho of trechos) {
+  trechos.forEach(trecho => {
     // separamos depois da hora e de ' - '  
     if (trecho[0] == '[') {
       trecho = trecho.substr(1)
@@ -69,7 +69,7 @@ function count_occurrences(trechos) {
         }
       }
     }
-  }
+  })
 
   // aqui nós contamos as ocorrências
   count_nomes = count_nomes.reduce(function (acc, curr) {
@@ -123,7 +123,7 @@ function count_string(trechos, participantes) {
   let count_final = {}
   for (let name of participantes) {
     let count_string = 0
-    for (let trecho of trechos) {
+    trechos.forEach(trecho => {
       if (trecho[0] == '[') {
         trecho = trecho.substr(1)
         trecho = trecho.split(/((( )([01]\d|2[0-9])):([0-9]\d)):([0-9]\d)(] )/)
@@ -162,7 +162,7 @@ function count_string(trechos, participantes) {
           }
         }
       }
-    }
+    })
     count_final[name] = count_string
     // depois organizamos da maior para a menor
     count_final = Object.fromEntries(Object.entries(count_final).sort(([, a], [, b]) => b - a))

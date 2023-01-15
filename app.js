@@ -42,7 +42,8 @@ function count_occurrences(trechos) {
           nome = nome.split(':')
           if (nome.length > 1) {
             nome = nome[0]
-            if (nome.includes("mudou o nome de") || nome.includes("Usuário adicionado") == false) {
+            if (nome.includes("mudou o nome de") || nome.includes("Usuário adicionado") || nome.includes("Você") == false) {
+
               count_nomes.push(nome)
               count_unique_names.add(nome)
             }
@@ -59,9 +60,11 @@ function count_occurrences(trechos) {
         if (data == new Date().getFullYear() - 1) {
           // por isso, separamos novamente, mas agora pelo :
           nome = nome.split(':')
+
           if (nome.length > 1) {
             nome = nome[0]
-            if (nome.includes("mudou o nome de") == false || nome.includes("Usuário adicionado")) {
+            if (nome.includes("mudou o nome de") || nome.includes("Usuário adicionado") || nome.includes("Você") == false ) {
+
               count_nomes.push(nome)
               count_unique_names.add(nome)
             }

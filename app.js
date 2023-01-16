@@ -4,6 +4,20 @@ let count_unique_names = new Set()
 let ultima_msg = document.querySelector(".ultima-msg")
 let titulo1 = document.querySelector(".titulo-1")
 let titulo2 = document.querySelector(".titulo-2")
+let form = document.querySelector("form")
+let instrucoesAndroid = document.querySelector('.instrucoes')
+let instrucoesIOS = document.querySelector('.instrucoes2')
+
+let getInstruction = (data) => {
+  if (data === 'IOS') {
+    instrucoesIOS.style.display = 'grid'
+    instrucoesAndroid.style.display = 'none'
+  }
+  if (data === 'Android') {
+    instrucoesIOS.style.display = 'none'
+    instrucoesAndroid.style.display = 'grid'
+  }
+}
 
 var openFile = function (event) {
   count_unique_names.clear()

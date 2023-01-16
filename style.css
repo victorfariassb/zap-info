@@ -40,6 +40,16 @@ input{
     display: block;
 }
 
+form{
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
+}
+
+.options{
+    display: flex;
+}
+
 .titulo-1{
     display: none;
     padding: 0.5vw;
@@ -114,6 +124,14 @@ li{
     justify-content: center;
 }
 
+.instrucoes2{
+    display: none;
+    grid-template-columns: 100px 542px;
+    grid-auto-rows: 50px;
+    margin: 2vh auto;
+    justify-content: center;
+}
+
 .numero{
     border: 2px solid black;
     border-bottom: 0;
@@ -150,7 +168,7 @@ li{
 
 
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     main{
         width: 100%;
     }
@@ -159,8 +177,19 @@ li{
         margin: 0 4vw;
         text-align: left;
     }
+    form{
+        margin: 0 auto;
+        width: 300px;
+    }
 
     .instrucoes{
+        margin: 4vh 2vw;
+        grid-template-columns: 0.7fr 3fr;
+        grid-auto-rows: 50px;
+    }
+
+    .instrucoes2{
+        display: none;
         margin: 4vh 2vw;
         grid-template-columns: 0.7fr 3fr;
         grid-auto-rows: 50px;
@@ -172,4 +201,6 @@ li{
     .titulo-1, .titulo-2{
         padding: 2vw;
     }
+
+
 }

@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fala muito</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,500&display=swap"
+        rel="stylesheet">
     <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
 </head>
 
@@ -17,14 +19,35 @@
             <h2> Veja quem falou mais no seu grupo de zap em 2022</h2>
             <h4>Para descobrir, basta seguir as instruções:</h4>
         </header>
+        <form>
+            <fieldset>
+                <legend>Escolha o seu sistema operacional</legend>
+
+                <div class="options">
+                    <input type="radio" id="android" name="system" value="Android" checked onchange="getInstruction(value)">
+                    <label for="android">Android</label>
+                    <input type="radio" id="IOS" name="system" value="IOS" onchange="getInstruction(value)">
+                    <label for="IOS">IOS</label>
+                </div>
+            </fieldset>
+        </form>
         <div class="instrucoes">
             <span class="numero">1:</span><span class="guia">Vá até o grupo que você quer descobrir</span>
             <span class="numero">2:</span><span class="guia">Na parte superior esquerda, selecione ︙</span>
             <span class="numero">3:</span><span class="guia">Escolha a opção "Mais"</span>
             <span class="numero">4:</span><span class="guia">Selecione "Exportar conversa", depois "Sem mídia"</span>
-            <span class="numero-fim">5:</span><span class="guia">Agora carregue o arquivo .txt aqui e veja o resultado!</span>
+            <span class="numero-fim">5:</span><span class="guia">Agora carregue o arquivo .txt aqui e veja o
+                resultado!</span>
         </div>
-        <p class="obs">Algumas funcionalidades do WhatsApp, como as figurinhas, não estão sendo contadas por enquanto.</p>
+        <div class="instrucoes2">
+            <span class="numero">1:</span><span class="guia">Vá até o grupo que você quer descobrir e entre nele</span>
+            <span class="numero">2:</span><span class="guia">Na parte superior, selecione o nome do grupo</span>
+            <span class="numero">3:</span><span class="guia">Escolha a opção "Exportar conversa", depois "Sem mídia"</span>
+            <span class="numero-fim">4:</span><span class="guia">Agora carregue o arquivo .txt aqui e veja o
+                resultado!</span>
+        </div>
+        <p class="obs">Algumas funcionalidades do WhatsApp, como as figurinhas, não estão sendo contadas por enquanto.
+        </p>
         <input type='file' accept='text/plain' onchange='openFile(event)' accept=".txt"><br>
         <h3 class="titulo-1">Nº de mensagens enviadas</h3>
         <ol id='output'>
